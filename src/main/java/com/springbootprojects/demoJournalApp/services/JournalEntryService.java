@@ -26,4 +26,9 @@ public class JournalEntryService {
         return journalEntryRepository.findById(userId);
     }
 
+    public String deleteEntry(@PathVariable ObjectId userId){
+        journalEntryRepository.deleteById(userId);
+        return "Entry Deleted";
+    }
+
 }
