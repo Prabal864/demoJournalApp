@@ -34,14 +34,14 @@ public class JournalEntryController {
         return journalEntryService.deleteEntry(userId);
     }
 
-
     /**
-     * Updates an existing journal entry identified by the userId. If the journal entry
-     * exists, certain fields are updated based on the provided userUpdatedEntry.
+     * Updates an existing journal entry for the specified user ID with the provided updated information.
+     * Retrieves the current entry by the user ID, validates it, and applies any non-null and non-empty changes.
+     * Saves the updated entry to the database and returns it.
      *
-     * @param userId the unique identifier of the journal entry to update
-     * @param userUpdatedEntry the journal entry data containing updated fields
-     * @return a message indicating the result of the update operation
+     * @param userId the unique identifier of the user whose journal entry needs to be updated
+     * @param userUpdatedEntry a JournalEntry object containing the updated title and/or content
+     * @return a ResponseEntity containing the updated JournalEntry if successful, or an appropriate HTTP status code if the entry couldn't be found or an error occurred
      */
 
     @PutMapping("id/{userId}")
